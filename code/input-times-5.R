@@ -1,7 +1,10 @@
 library(magrittr)
 library(tidyverse)
 
-input <- read_csv("data/input-file.csv")
+input <- tibble(
+  data_type = "input",
+  value = 1:3 * 10
+)
 
 output <-
   input %>%
@@ -9,6 +12,8 @@ output <-
     data_type = "output",
     value = value * 5
   )
+
+if(!dir.exists("data")) dir.create("data")
 
 write_csv(output, "data/input-times-5.csv")
 
@@ -21,4 +26,3 @@ input %>%
       geom_line()+
       geom_smooth(se=TRUE)+
       labs(title = "Data Visualization for testing git merge")
-
