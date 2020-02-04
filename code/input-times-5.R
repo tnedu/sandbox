@@ -17,5 +17,8 @@ view(input)
 
 input %>% 
   mutate(input_square= value^2) %>% 
-  ggplot(aes(x=value, y=input_square))+
-    geom_line()
+    ggplot(aes(x=value, y=input_square))+
+      geom_line()+
+      geom_smooth(se=TRUE)+
+      labs(title = "Data Visualization for testing git merge")
+
